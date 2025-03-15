@@ -116,6 +116,7 @@ No corpo da requisicao coloque o seguinte Json de exemplo:
 }
 
 Se obtiver sucesso o status de retorno http ser? 201 Created.
+obs: Para enviar mais contatos é só alterar o email que é enviado.
 
 ---
 
