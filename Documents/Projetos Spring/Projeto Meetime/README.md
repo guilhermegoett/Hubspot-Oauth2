@@ -46,7 +46,7 @@ Ou, se estiver usando um IDE, rode a classe `DemoApplication.java`.
 
 ---
 
-## Endpoints Disponíveis
+## Endpoints Disponiveis
 
 ### Autorização OAuth2 (Etapa feita pelo navegador)
 
@@ -72,12 +72,62 @@ Ou, se estiver usando um IDE, rode a classe `DemoApplication.java`.
 
 ---
 
+### Passo a passo para testar todos os end-points que est?o funcionando
+
+1. Rogar o end-point abaixo no navegador:
+
+http://localhost:8080/hubspot/authorize
+
+2. Escolher a conta chamada **Conta de teste do desenvolvedor 1**
+
+3. Instalar o aplicativo, dando tudo certo na tela ir? aparecer "Access Token armazenado com sucesso!".
+
+4. No navegador rode a url abaixo que ir? listar todos os contatos cadastrados:
+
+ http://localhost:8080/hubspot/contatos
+ 
+5. No postman configure uma chamada POST com a url abaixo:
+
+http://localhost:8080/hubspot/criarcontato
+
+Passando Content-Type:application/json no header.
+No corpo da requisicao coloque o seguinte Json de exemplo:
+
+{
+    "associations": [
+        {
+            "types": [
+                {
+                    "associationCategory": "HUBSPOT_DEFINED",
+                    "associationTypeId": 1
+                }
+            ],
+            "to": {
+                "id": "31064433528"
+            }
+        }
+    ],
+    "objectWriteTraceId": "trace-id-124",
+    "properties": {
+        "email": "contato.s@empresateste.industries",
+        "lastname": "S.",
+        "firstname": "Contato"
+    }
+}
+
+Se obtiver sucesso o status de retorno http ser? 201 Created.
+
+---
+
 ### Melhorias
 
 Testar webhook e continuar seu desenvolvimento.
 Dar refesh no token quando acabar o seu tempo corrente.
 Melhorar tratamento de erros.
 Dividir melhor o projeto e encapsular mais os objetos.
+Telas de login e para cadastrar contatos.
+
+---
 
 ## Licença
 
@@ -87,5 +137,5 @@ Este projeto é distribuído sob a licença MIT. Veja `LICENSE` para mais informaçõ
 
 ## Contato
 
-Caso tenha dúvidas ou sugestões, entre em contato pelo e-mail **[guilhermegoet@gmail.com](mailto\guilhermegoet@gmail.com)**.
+Caso tenha dúvidas ou sugestões, entre em contato pelo e-mail **[guilhermegoet@gmail.com](mailto:guilhermegoet@gmail.com)**.
 
