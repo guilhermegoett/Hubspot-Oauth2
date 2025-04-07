@@ -85,7 +85,7 @@ public class AuthService {
             sessionFactory.getObject().setAccessToken(jsonResponse.get("access_token").asText());            
             return ResponseEntity.ok("Access Token armazenado com sucesso!");
         } catch (Exception e) {
-            return ResponseEntity.status(HttpStatus.BAD_REQUEST).body("Erro ao trocar o codigo por um token");
+            return ResponseEntity.status(HttpStatus.BAD_REQUEST).body("Erro ao trocar o código por um token");
         }
     }
 
